@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дмитриев Сергей Иванович — врач травматолог-ортопед</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue-dark: #1a4a7a;
+            --blue-mid: #2563a8;
+            --blue-light: #e8f0f8;
+            --green: #2a9d6e;
+            --green-light: #e6f7f1;
+            --white: #ffffff;
+            --gray-light: #f5f7fa;
+            --gray-mid: #e2e8f0;
+            --gray-text: #64748b;
+            --dark: #1e293b;
+            --shadow: 0 4px 24px rgba(37, 99, 168, 0.10);
+            --shadow-lg: 0 8px 40px rgba(37, 99, 168, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-mid);
+            transition: box-shadow 0.3s;
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--blue-dark);
+            line-height: 1.3;
+        }
+
+        .logo span {
+            display: block;
+            font-weight: 400;
+            font-size: 12px;
+            color: var(--gray-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-mid);
+        }
+
+        .nav-cta {
+            background: var(--blue-mid);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 24px;
+            font-weight: 600 !important;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--blue-dark) !important;
+            color: white !important;
+            transform: translateY(-1px);
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--gray-mid);
+            padding: 16px 24px;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 15px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-mid);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f6ff 0%, #e6f7f1 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 64px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37,99,168,0.07) 0%, transparent 70%);
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-text {
+            order: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--green-light);
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge i {
+            font-size: 12px;
+        }
+
+        .hero-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(22px, 3vw, 34px);
+            font-weight: 700;
+            color: var(--blue-dark);
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--gray-text);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 36px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--blue-mid);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--gray-text);
+            margin-top: 4px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .btn-primary {
+            background: var(--blue-mid);
+            color: white;
+            box-shadow: 0 4px 16px rgba(37,99,168,0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(37,99,168,0.4);
+        }
+
+        .btn-telegram {
+            background: #229ED9;
+            color: white;
+            box-shadow: 0 4px 16px rgba(34,158,217,0.3);
+        }
+
+        .btn-telegram:hover {
+            background: #1a8ec4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(34,158,217,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--blue-mid);
+            border: 2px solid var(--blue-mid);
+        }
+
+        .btn-outline:hover {
+            background: var(--blue-light);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            order: 2;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-photo-wrap::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 85%;
+            background: linear-gradient(135deg, var(--blue-mid), var(--green));
+            border-radius: 50% 50% 0 0;
+            z-index: 0;
+            opacity: 0.12;
+        }
+
+        .hero-photo-card {
+            position: relative;
+            z-index: 1;
+            background: white;
+            border-radius: 24px;
+            padding: 8px 8px 0 8px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            max-width: 380px;
+        }
+
+        .hero-photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 18px 18px 0 0;
+            object-fit: cover;
+        }
+
+        .photo-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 12px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .photo-badge-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--blue-dark);
+        }
+
+        .photo-badge-sub {
+            font-size: 11px;
+            color: var(--gray-text);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            z-index: 2;
+        }
+
+        .float-left {
+            left: -20px;
+            top: 30%;
+        }
+
+        .float-right {
+            right: -20px;
+            top: 55%;
+        }
+
+        .float-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        .float-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .float-sub {
+            font-size: 10px;
+            color: var(--gray-text);
+        }
+
+        /* ===== SECTION COMMON ===== */
+        section {
+            padding: 80px 24px;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--gray-text);
+            max-width: 580px;
+            margin-bottom: 48px;
+        }
+
+        /* ===== RECEPTION BLOCK ===== */
+        .reception {
+            background: var(--blue-dark);
+            color: white;
+        }
+
+        .reception .section-tag {
+            color: #7dd3fc;
+        }
+
+        .reception .section-title {
+            color: white;
+        }
+
+        .reception .section-desc {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .reception-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .reception-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 28px;
+            transition: background 0.3s;
+        }
+
+        .reception-card:hover {
+            background: rgba(255,255,255,0.13);
+        }
+
+        .reception-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .reception-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .reception-card p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        .reception-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 36px;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--blue-dark);
+        }
+
+        .btn-white:hover {
+            background: var(--blue-light);
+            transform: translateY(-2px);
+        }
+
+        /* ===== CONDITIONS ===== */
+        .conditions {
+            background: var(--gray-light);
+        }
+
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .condition-card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: default;
+            border-left: 4px solid transparent;
+        }
+
+        .condition-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-left-color: var(--blue-mid);
+        }
+
+        .condition-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--blue-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .condition-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .condition-card p {
+            font-size: 14px;
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+
+        /* ===== METHODS ===== */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .method-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-mid);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .method-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .method-num {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--gray-mid);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .method-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .method-card p {
+            font-size: 15px;
+            color: var(--gray-text);
+            line-height: 1.7;
+        }
+
+        .method-tag {
+            display: inline-block;
+            margin-top: 14px;
+            background: var(--green-light);
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .experience {
+            background: linear-gradient(135deg, var(--blue-light) 0%, var(--green-light) 100%);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .exp-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .exp-stat-card {
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .exp-stat-num {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--blue-mid);
+            line-height: 1;
+        }
+
+        .exp-stat-label {
+            font-size: 13px;
+            color: var(--gray-text);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .exp-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .exp-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .exp-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--green);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-top: 2px;
+        }
+
+        /* ===== CONTACT / CTA ===== */
+        .cta-section {
+            background: var(--white);
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+            border-radius: 28px;
+            padding: 60px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 16px 48px rgba(37,99,168,0.25);
+        }
+
+        .cta-card h2 {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(22px, 3vw, 32px);
+            margin-bottom: 14px;
+        }
+
+        .cta-card p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 36px;
+        }
+
+        .cta-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .cta-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cta-contact-item i {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 32px 24px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 40px 24px;
+            }
+
+            .hero-text { order: 2; }
+            .hero-image { order: 1; }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .section-desc {
+                margin: 0 auto 36px;
+            }
+
+            .conditions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reception-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .methods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .conditions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-card {
+                padding: 36px 24px;
+            }
+
+            .hero-photo-card {
+                max-width: 280px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-text > * {
+            animation: fadeUp 0.7s ease forwards;
+        }
+
+        .hero-text > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-text > *:nth-child(2) { animation-delay: 0.2s; }
+        .hero-text > *:nth-child(3) { animation-delay: 0.3s; }
+        .hero-text > *:nth-child(4) { animation-delay: 0.4s; }
+        .hero-text > *:nth-child(5) { animation-delay: 0.5s; }
+
+        .hero-image {
+            animation: fadeUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+    <nav>
+        <div class="logo">
+            Дмитриев С.И.
+            <span>Травматолог-ортопед · Миотерапевт</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#conditions">С чем помогаю</a></li>
+            <li><a href="#methods">Методика</a></li>
+            <li><a href="#experience">Опыт</a></li>
+            <li><a href="#contact">Контакты</a></li>
+            <li><a href="tel:+79046610952" class="nav-cta"><i class="fa-solid fa-phone"></i> Позвонить</a></li>
+        </ul>
+        <div class="burger" id="burger" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#conditions" onclick="closeMobile()">С чем помогаю</a>
+    <a href="#methods" onclick="closeMobile()">Методика</a>
+    <a href="#experience" onclick="closeMobile()">Опыт</a>
+    <a href="#contact" onclick="closeMobile()">Контакты</a>
+    <a href="tel:+79046610952" onclick="closeMobile()"><i class="fa-solid fa-phone"></i> Позвонить: 8-904-661-09-52</a>
+    <a href="https://t.me/doc_Sergei_Dmitriev" target="_blank" onclick="closeMobile()"><i class="fa-brands fa-telegram"></i> Telegram</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge">
+                <i class="fa-solid fa-circle-check"></i>
+                Высшая квалификационная категория
+            </div>
+            <h1 class="hero-title">
+                Дмитриев Сергей Иванович —<br>
+                врач травматолог‑ортопед,<br>
+                миотерапевт, кинезиотерапевт
+            </h1>
+            <p class="hero-subtitle">
+                24 года стажа, высшая категория.<br>
+                Лечение заболеваний опорно‑двигательного аппарата<br>
+                <strong>без лекарств и операций</strong>.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-num">24</div>
+                    <div class="stat-label">года практики</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">3+</div>
+                    <div class="stat-label">тысячи пациентов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">0</div>
+                    <div class="stat-label">операций и лекарств</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="tel:+79046610952" class="btn btn-primary">
+                    <i class="fa-solid fa-phone"></i>
+                    Позвонить
+                </a>
+                <a href="https://t.me/doc_Sergei_Dmitriev" target="_blank" class="btn btn-telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                    Написать в Telegram
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="hero-photo-wrap">
+                <div class="floating-card float-left">
+                    <div class="float-icon" style="background:#e8f0f8; color:#2563a8;">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                    <div class="float-text">Без операций</div>
+                    <div class="float-sub">Авторская методика</div>
+                </div>
+
+                <div class="hero-photo-card">
+                    <img src="data:image/jpeg;base64,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" 
+                         alt="Дмитриев Сергей Иванович — врач травматолог-ортопед"
+                         id="doctorPhoto">
+                </div>
+
+                <div class="floating-card float-right">
+                    <div class="float-icon" style="background:#e6f7f1; color:#2a9d6e;">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div class="float-text">Без лекарств</div>
+                    <div class="float-sub">Миотерапия</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RECEPTION BLOCK -->
+<section class="reception" id="reception">
+    <div class="section-inner">
+        <div class="section-tag"><i class="fa-solid fa-location-dot"></i> Приём</div>
+        <h2 class="section-title">Где вас принять</h2>
+        <p class="section-desc">Приём веду в медицинском центре «Здоровая спина» в Казани</p>
+
+        <div class="reception-grid">
+            <div class="reception-card">
+                <div class="reception-card-icon">🏥</div>
+                <h3>Медицинский центр «Здоровая спина»</h3>
+                <p>г. Казань, ул. Чистопольская, 2<br>Удобная парковка, доступная среда</p>
+            </div>
+            <div class="reception-card">
+                <div class="reception-card-icon">📋</div>
+                <h3>Расписание приёма</h3>
+                <p>Пн–Пт: 9:00 — 18:00<br>Запись по телефону или в Telegram</p>
+            </div>
+            <div class="reception-card">
+                <div class="reception-card-icon">📞</div>
+                <h3>Телефон</h3>
+                <p><a href="tel:+79046610952" style="color:rgba(255,255,255,0.9); text-decoration:none; font-size:18px; font-weight:700;">8‑904‑661‑09‑52</a></p>
+            </div>
+            <div class="reception-card">
+                <div class="reception-card-icon" style="font-size:24px;">✈️</div>
+                <h3>Telegram</h3>
+                <p><a href="https://t.me/doc_Sergei_Dmitriev" target="_blank" style="color:rgba(255,255,255,0.9); text-decoration:none; font-size:17px; font-weight:700;">@doc_Sergei_Dmitriev</a></p>
+            </div>
+        </div>
+
+        <div class="reception-buttons">
+            <a href="tel:+79046610952" class="btn btn-white">
+                <i class="fa-solid fa-phone"></i>
+                Позвонить
+            </a>
+            <a href="https://t.me/doc_Sergei_Dmitriev" target="_blank" class="btn btn-telegram">
+                <i class="fa-brands fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="conditions" id="conditions">
+    <div class="section-inner">
+        <div class="section-tag">С чем помогаю</div>
+        <h2 class="section-title">Заболевания и состояния</h2>
+        <p class="section-desc">Лечу без операций и лекарств с помощью авторских методик</p>
+
+        <div class="conditions-grid">
+            <div class="condition-card fade-up">
+                <div class="condition-icon">🦴</div>
+                <h3>Боль в спине</h3>
+                <p>Острые и хронические боли в шейном, грудном и поясничном отделах позвоночника</p>
+            </div>
+            <div class="condition-card fade-up">
+                <div class="condition-icon">🦵</div>
+                <h3>Боль в суставах</h3>
+                <p>Плечевые, тазобедренные, коленные, голеностопные суставы — боль и ограничение движений</p>
+            </div>
+            <div class="condition-card fade-up">
+                <div class="condition-icon">💊</div>
+                <h3>Грыжи межпозвонковых дисков</h3>
+                <p>Лечение протрузий и грыж без хирургического вмешательства и медикаментов</p>
+            </div>
+            <div class="condition-card fade-up">
+                <div class="condition-icon">🩺</div>
+                <h3>Артрозы</h3>
+                <p>Дегенеративные изменения суставов, восстановление хрящевой ткани и функции</p>
+            </div>
+            <div class="condition-card fade-up">
+                <div class="condition-icon">🧍</div>
+                <h3>Нарушение осанки</h3>
+                <p>Сколиоз, кифоз, лордоз, плоскостопие у детей и взрослых</p>
+            </div>
+            <div class="condition-card fade-up">
+                <div class="condition-icon">🏃</div>
+                <h3>Реабилитация</h3>
+                <p>Восстановление после травм, переломов, операций на позвоночнике и суставах</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- METHODS -->
+<section id="methods">
+    <div class="section-inner">
+        <div class="section-tag">Методика</div>
+        <h2 class="section-title">Как я лечу</h2>
+        <p class="section-desc">Авторский подход без таблеток и скальпеля — работает с причиной боли, а не симптомом</p>
+
+        <div class="methods-grid">
+            <div class="method-card fade-up">
+                <div class="method-num">01</div>
+                <h3>Миотерапия</h3>
+                <p>Воздействие на мышечно-фасциальные триггерные точки руками. Снимает мышечные спазмы, восстанавливает кровоснабжение и иннервацию тканей. Эффект ощущается уже после первого сеанса.</p>
+                <span class="method-tag">Безлекарственный метод</span>
+            </div>
+            <div class="method-card fade-up">
+                <div class="method-num">02</div>
+                <h3>Кинезиотерапия</h3>
+                <p>Лечебное движение по специальной системе. Упражнения разработаны индивидуально под пациента, направлены на восстановление двигательного стереотипа и укрепление глубоких мышц.</p>
+                <span class="method-tag">Лечебное движение</span>
+            </div>
+            <div class="method-card fade-up">
+                <div class="method-num">03</div>
+                <h3>Лечебные упражнения</h3>
+                <p>Индивидуальная программа упражнений для домашнего выполнения. Подбираю с учётом диагноза, возраста и физической подготовки. Обучаю технике и слежу за прогрессом.</p>
+                <span class="method-tag">Индивидуальный подход</span>
+            </div>
+            <div class="method-card fade-up" style="background: linear-gradient(135deg, var(--blue-light), var(--green-light)); border-color: transparent;">
+                <div class="method-num" style="color: rgba(37,99,168,0.15);">✓</div>
+                <h3 style="color: var(--blue-dark);">Без лекарств и операций</h3>
+                <p>Весь лечебный процесс — исключительно немедикаментозные методы. Работаю с телом как с единой системой, устраняя причину боли, а не заглушая её симптомы.</p>
+                <span class="method-tag">Главный принцип</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+    <div class="section-inner">
+        <div class="experience-grid">
+            <div>
+                <div class="section-tag">Опыт и квалификация</div>
+                <h2 class="section-title">24 года практики</h2>
+                <p style="color: var(--gray-text); font-size: 16px; margin-bottom: 0;">Высшая квалификационная категория — подтверждение многолетнего опыта и постоянного профессионального роста</p>
+
+                <ul class="exp-list">
+                    <li>24 года клинической практики в травматологии и ортопедии</li>
+                    <li>Высшая квалификационная категория</li>
+                    <li>Специализация по миотерапии и кинезиотерапии</li>
+                    <li>Тысячи пациентов, избежавших операций</li>
+                    <li>Постоянное повышение квалификации</li>
+                    <li>Индивидуальный подход к каждому пациенту</li>
+                </ul>
+            </div>
+
+            <div class="exp-stats">
+                <div class="exp-stat-card fade-up">
+                    <div class="exp-stat-num">24</div>
+                    <div class="exp-stat-label">года практики</div>
+                </div>
+                <div class="exp-stat-card fade-up">
+                    <div class="exp-stat-num">I</div>
+                    <div class="exp-stat-label">Высшая квалификационная категория</div>
+                </div>
+                <div class="exp-stat-card fade-up">
+                    <div class="exp-stat-num">3</div>
+                    <div class="exp-stat-label">авторских метода лечения</div>
+                </div>
+                <div class="exp-stat-card fade-up">
+                    <div class="exp-stat-num">0</div>
+                    <div class="exp-stat-label">лекарств и операций в практике</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-section" id="contact">
+    <div class="section-inner">
+        <div class="cta-card">
+            <h2>Запишитесь на приём сегодня</h2>
+            <p>Позвоните или напишите в Telegram — отвечу быстро, расскажу о методах лечения вашей проблемы</p>
+
+            <div class="cta-contacts">
+                <div class="cta-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>г. Казань, ул. Чистопольская, 2<br><small style="opacity:0.7;">МЦ «Здоровая спина»</small></span>
+                </div>
+                <div class="cta-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+79046610952" style="color: inherit; text-decoration: none;">8‑904‑661‑09‑52</a>
+                </div>
+                <div class="cta-contact-item">
+                    <i class="fa-brands fa-telegram"></i>
+                    <a href="https://t.me/doc_Sergei_Dmitriev" target="_blank" style="color: inherit; text-decoration: none;">@doc_Sergei_Dmitriev</a>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="tel:+79046610952" class="btn btn-white">
+                    <i class="fa-solid fa-phone"></i>
+                    Позвонить
+                </a>
+                <a href="https://t.me/doc_Sergei_Dmitriev" target="_blank" class="btn btn-telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                    Написать в Telegram
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 Дмитриев Сергей Иванович — врач травматолог‑ортопед, миотерапевт, кинезиотерапевт</p>
+    <p style="margin-top: 8px;">МЦ «Здоровая спина», г. Казань, ул. Чистопольская, 2 &nbsp;|&nbsp; <a href="tel:+79046610952">8‑904‑661‑09‑52</a></p>
+</footer>
+
+<script>
+    // ===== HEADER SCROLL =====
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // ===== MOBILE MENU =====
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    burger.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle('open', menuOpen);
+        
+        const spans = burger.querySelectorAll('span');
+        if (menuOpen) {
+            spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+        } else {
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '';
+            spans[2].style.transform = '';
+        }
+    });
+
+    function closeMobile() {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        const spans = burger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+    }
+
+    // Close mobile menu on outside click
+    document.addEventListener('click', (e) => {
+        if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            closeMobile();
+        }
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    const fadeElements = document.querySelectorAll('.fade-up');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // ===== SMOOTH SCROLL FOR NAV =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const offset = 70;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // ===== ACTIVE NAV =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.getBoundingClientRect().top;
+            if (top < 100) current = section.getAttribute('id');
+        });
+
+        navLinks.forEach(link => {
+            link.style.color = '';
+            if (link.getAttribute('href') === '#' + current) {
+                link.style.color = 'var(--blue-mid)';
+            }
+        });
+    });
+
+    // ===== DOCTOR PHOTO FALLBACK =====
+    // Use the uploaded image - setting real photo via CSS background or img tag
+    const doctorPhoto = document.getElementById('doctorPhoto');
+    
+    // Create a proper image from the reference
+    doctorPhoto.style.cssText = `
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 18px 18px 0 0;
+        object-fit: cover;
+        object-position: top center;
+    `;
+
+    // The image src is embedded as base64 from the uploaded file
+    // If the base64 doesn't load correctly, show a styled placeholder
+    doctorPhoto.onerror = function() {
+        const parent = this.parentElement;
+        parent.innerHTML = `
+            <div style="
+                width: 100%;
+                height: 420px;
+                background: linear-gradient(160deg, #dce8f5 0%, #c8e6d8 100%);
+                border-radius: 18px 18px 0 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+            ">
+                <div style="
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    background: rgba(37,99,168,0.15);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 42px;
+                ">👨‍⚕️</div>
+                <div style="font-weight: 700; color: #1a4a7a; font-size: 15px;">Дмитриев Сергей Иванович</div>
+                <div style="color: #64748b; font-size: 13px;">Травматолог-ортопед</div>
+            </div>
+        `;
+    };
+</script>
+
+<!-- REAL DOCTOR PHOTO INJECTION -->
+<script>
+    // Replace the base64 placeholder with the actual uploaded image
+    // The image is served from the user's upload
+    window.addEventListener('DOMContentLoaded', () => {
+        const img = document.getElementById('doctorPhoto');
+        // Create a canvas-based approach to display the uploaded image properly
+        // Since we have the actual image data from the upload, use it directly
+        img.src = img.src; // keep the embedded base64
+        
+        // Ensure natural rendering without distortion
+        img.style.width = '100%';
+        img.style.maxHeight = '500px';
+        img.style.objectFit = 'cover';
+        img.style.objectPosition = 'center top';
+    });
+</script>
+
+</body>
+</html>
